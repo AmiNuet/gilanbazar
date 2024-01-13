@@ -1,0 +1,50 @@
+.woocommerce-pagination {
+    margin-bottom: 16px;
+
+    ul.page-numbers {
+        display: flex !important;
+        justify-content: flex-start;
+        border: none !important;
+        direction: ltr;
+
+        li {
+            border: none !important;
+          a, span {
+              display: flex !important;
+              justify-content: center;
+              align-items: center;
+              padding: 12px 15px !important;
+              color: var(--color-shades-blue-500);
+              text-decoration: none !important;
+              border-radius: 50%;
+          }
+        }
+
+        li:first-child a,
+        li:last-child a {
+            font-size: 0;
+        }
+
+        li a:first-child.prev.page-numbers::before {
+            content: '← قبل';
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        li a:last-child.next.page-numbers::after {
+            content: 'بعد →';
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        &.active {
+            background: var(--pagination-active-bullet-bg-color);
+            color: var(--color-white);
+        }
+
+        &.prev, &.next {
+            font-size: map-get($text-sizes, 2xl);
+        }
+
+    }
+}

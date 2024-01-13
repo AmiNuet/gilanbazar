@@ -1,0 +1,16 @@
+.exp-image {
+    /* Needs to be added for the native image block */
+    .row .container {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+.wp-block-image {
+    img {
+        width: 100%;
+        border-radius: 20px;
+    }
+}

@@ -1,0 +1,76 @@
+.exp-follow-us {
+    @at-root .cu-theme & {
+        --svg-background-color: var(--color-white);
+        --svg-background-color-hover: var(--color-cu-lightblue-300);
+    }
+
+    background-color: var(--color-brand-1);
+    border-radius: 8px;
+    padding: 18px 0;
+
+    @include media-breakpoint-up(lg) {
+        padding: 38px 0;
+    }
+
+    ul {
+        display: flex;
+        gap: 16px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+
+            &:hover,
+            &:focus {
+                a {
+                    background-color: var(--svg-background-color-hover);
+                }
+            }
+
+            a {
+                width: 40px;
+                height: 40px;
+                border-radius: 20px;
+                background-color: var(--svg-background-color);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                @include media-breakpoint-up(lg) {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 24px;
+                }
+            }
+
+            svg {
+                fill: var(--color-brand-1);
+                height: 20px;
+            }
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        width: 100%;
+        font-size: map-get($text-sizes, xl);
+        text-align: right;
+        color: var(--color-white);
+        margin-right: 8px;
+        margin-bottom: 0;
+
+        @include media-breakpoint-up(md) {
+            font-size: map-get($text-sizes, 2xl);
+        }
+
+    }
+}

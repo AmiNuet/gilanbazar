@@ -1,0 +1,14 @@
+.archive-product {
+    &__header {
+      display: flex;
+      gap: 32px;
+      align-items: baseline;
+      justify-content: flex-start;
+    }
+
+    &__products-container {
+      display: flex;
+
+    }
+
+}

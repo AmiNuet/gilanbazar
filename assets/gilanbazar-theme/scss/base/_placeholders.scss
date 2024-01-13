@@ -1,0 +1,85 @@
+/* Buttons
+========================================================================== */
+
+/*
+ * usage:
+ * @extend %btn;
+ */
+%btn {
+    border: none; /* stylelint-disable-line declaration-property-value-disallowed-list */
+    cursor: pointer;
+    box-shadow: none;
+    text-align: center;
+}
+
+/* Background image
+========================================================================== */
+
+/*
+ * usage:
+ * @extend %bg-image;
+ */
+%bg-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+/* Flexbox
+========================================================================== */
+
+/*
+ * usage:
+ * @extend %flexbox-center;
+ */
+%flexbox-center {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+/*
+ * usage:
+ * @extend %flexbox-v-center;
+ */
+%flexbox-v-center {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+/*
+ * usage:
+ * @extend %flexbox-h-center;
+ */
+%flexbox-h-center {
+    align-items: center;
+    display: flex;
+    height: 100%;
+}
+
+%pagination {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .swiper-pagination-bullet {
+        width: 40px;
+        height: 5px;
+        cursor: pointer;
+        border-radius: 50rem;
+        transition: all .3s ease-in-out;
+        background-color: var(--color-shades-grey-200);
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: var(--color-brand-1);
+    }
+}

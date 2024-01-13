@@ -1,0 +1,151 @@
+.gform_wrapper.gravity-theme {
+    --form-border-radius: 2px;
+    --form-input-border-inactive: 1px solid var(--color-shades-white-500);
+    --form-checkbox-box-size: 20px;
+
+    .gform_heading {
+        .gform_title {
+            font-size: map-get($text-sizes, 2xl);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+    }
+
+    .gform_body {
+        .gfield_label {
+            font-size: map-get($text-sizes, xs);
+            font-weight: 400;
+            color: var(--color-shades-grey-500);
+            margin-bottom: 8px;
+        }
+
+        .ginput_container {
+            input {
+                font-size: map-get($text-sizes, sm);
+                border-radius: 4px;
+                padding: 9px 12px;
+                border: 1px solid var(--color-shades-blue-400);
+                color: var(--color-shades-blue-500);
+                transition: 0.2s;
+                box-sizing: border-box;
+                outline: none;
+
+                @include media-breakpoint-up(md) {
+                    padding: 15px 12px;
+                }
+
+                &::placeholder {
+                    opacity: 0.7;
+                }
+
+                &:focus-visible,
+                &:focus,
+                &:active {
+                    outline: 2px solid var(--color-shades-blue-400);
+                    border: 1px solid var(--color-shades-blue-500);
+                }
+            }
+
+            input[type='checkbox'] {
+                height: var(--form-checkbox-box-size);
+                width: var(--form-checkbox-box-size);
+                opacity: 0;
+
+                & + label {
+                    &:before {
+                        content: '';
+                        display: inline-block;
+                        height: var(--form-checkbox-box-size);
+                        width: var(--form-checkbox-box-size);
+                        background-color: var(--color-brand-1);
+                        border-radius: var(--form-border-radius);
+                        position: absolute;
+                        top: 5px;
+                        left: 0;
+                        background-size: calc(var(--form-checkbox-box-size) - 4px);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-image: url('data:image/svg+xml,%3Csvg width=\'14\' height=\'14\' viewBox=\'0 0 14 14\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M11.8125 3.93777L5.6875 10.0625L2.625 7.00027\' stroke=\'white\' stroke-width=\'1.73554\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/%3E%3C/svg%3E%0A');
+                        opacity: 0;
+                        z-index: 10;
+                    }
+
+                    &:after {
+                        content: '';
+                        display: inline-block;
+                        height: var(--form-checkbox-box-size);
+                        width: var(--form-checkbox-box-size);
+                        border: var(--form-input-border-inactive);
+                        background-color: #ffffff;
+                        border-radius: var(--form-border-radius);
+                        position: absolute;
+                        top: 5px;
+                        left: 0;
+                        opacity: 1;
+                        z-index: 5;
+                    }
+                }
+
+                &:checked {
+                    & + label {
+                        &:before {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        .gfield_description {
+            border-radius: 4px;
+        }
+
+        .ginput_container_consent {
+            display: inline-flex;
+            align-items: baseline;
+            position: relative;
+
+            .gform-field-label {
+                margin-left: 12px;
+            }
+        }
+    }
+
+    .gform_footer {
+        margin-top: 24px !important;
+        justify-content: flex-end;
+
+        .gform_button {
+            background: none;
+            margin: 0;
+            padding: 8px 28px;
+            border: 1px solid var(--color-brand-1);
+            border-radius: 8px;
+            background: var(--color-shades-blue-300);
+
+            span {
+                font-size: map-get($text-sizes, lg);
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                font-weight: 700;
+                color: var(--color-brand-1);
+
+                &:after {
+                    content: '';
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 18px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: var(--color-brand-1);
+                    margin-right: 12px;
+                    background-image: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.4265 2.80472L1.86941 6.91058C1.74694 6.94512 1.63794 7.01622 1.55696 7.11437C1.47598 7.21252 1.42689 7.33305 1.41625 7.45985C1.40561 7.58665 1.43392 7.71367 1.49741 7.82395C1.56089 7.93422 1.65652 8.0225 1.77152 8.07697L8.45999 11.2452C8.59044 11.307 8.69548 11.412 8.75728 11.5425L11.9255 18.231C11.98 18.3459 12.0682 18.4416 12.1785 18.5051C12.2888 18.5685 12.4158 18.5969 12.5426 18.5862C12.6694 18.5756 12.7899 18.5265 12.8881 18.4455C12.9862 18.3645 13.0573 18.2555 13.0919 18.1331L17.1977 3.57593C17.2279 3.469 17.229 3.35596 17.201 3.24846C17.1729 3.14096 17.1167 3.04287 17.0382 2.96431C16.9596 2.88575 16.8615 2.82955 16.754 2.8015C16.6465 2.77345 16.5335 2.77456 16.4265 2.80472Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.66016 11.3403L12.1958 7.80469" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+        }
+    }
+}

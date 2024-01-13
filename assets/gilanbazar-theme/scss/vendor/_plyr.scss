@@ -1,0 +1,13 @@
+@import '~plyr/src/sass/plyr';
+
+/* stylelint-disable */
+.plyr__control{
+    &:hover {
+        background-color: var(--color-brand-1) !important;
+    }
+
+    &--overlaid {
+        background-color: var(--color-brand-1);
+    }
+}
+/* stylelint-enable */

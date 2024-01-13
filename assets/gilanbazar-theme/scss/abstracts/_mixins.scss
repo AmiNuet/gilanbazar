@@ -1,0 +1,16 @@
+/* Button background
+========================================================================== */
+
+/*
+ * usage:
+ * @include btn-background(green);
+ */
+@mixin btn-background($btn-background) {
+    @extend %btn;
+
+    background-color: $btn-background;
+
+    &:hover {
+        background-color: lighten($btn-background, 10%); /* stylelint-disable-line */
+    }
+}

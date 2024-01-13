@@ -1,0 +1,280 @@
+/* General
+========================================================================== */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 175px;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+body {
+    direction: rtl;
+    overflow-x: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    --color-primary: var(--color-gray);
+    --color-secondary: var(--color-black-dark-500);
+
+    --bg-primary: var(--color-primary);
+    --bg-secondary: var(--color-secondary);
+
+    --font-body: $font-primary;
+
+    --color-success: var(--color-green);
+    --color-danger: var(--color-red);
+    --color-warning: var(--color-yellow);
+
+    --text-color: var(--color-black);
+    --text-font-size: map-get($text-sizes, base);
+    --text-lineheight: 1.2;
+
+    --link-color: #{$link-color};
+    --link-decoration: #{$link-decoration};
+    --link-hover-color: #{$link-hover-color};
+    --link-hover-decoration: #{$link-hover-decoration};
+
+    font-family: $font-primary;
+    font-size: var(--text-font-size);
+    line-height: var(--text-lineheight);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* stylelint-disable */
+    &.gilbazar-theme {
+        --color-brand-1: var(--color-spring-green);
+        --color-brand-2: var(--color-golden-harvest);
+        --color-brand-3: var(--color-terracotta-red);
+        --color-brand-4: var(--color-black-dark-500);
+    }
+
+    /* stylelint-enable */
+}
+input::placeholder {
+        color: var(--color-shades-blue-300);
+}
+
+.mobile-sidebar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20,102,137, 0.2);
+    z-index: 1;
+}
+::selection {
+    background: var(--color-primary);
+    color: var(--color-black);
+}
+
+// Fix for admin bar behind fixed header
+.admin-bar .fixed-top {
+    @include media-breakpoint-up(sm) {
+        top: 32px;
+    }
+}
+
+a {
+    @at-root .gilbazar-theme & {
+        --text-color: var(--color-brand-1);
+        --hover-color: var(--color-shades-grey-500);
+    }
+
+
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--text-color);
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: var(--hover-color);
+    }
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+.noscript {
+    border: 2px solid var(--color-primary);
+    color: var(--text-color);
+    display: block;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* stylelint-disable */
+a.skip-link {
+    display: none;
+}
+/* stylelint-enable */
+
+.click-url {
+    cursor: pointer;
+    filter: alpha(opacity=0); /* stylelint-disable-line */
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    text-decoration: none;
+    top: 0;
+    width: 100%;
+}
+
+.screen-reader-text {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.overlay-background {
+    background-color: var(--color-black);
+    opacity: 0.3;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    z-index: 10;
+}
+
+/* stylelint-disable */
+/* Wordpress wysiwyg editor styling for images */
+.aligncenter img {
+    display: block;
+    margin: 5px auto;
+
+    figcaption {
+        text-align: center;
+    }
+}
+
+.alignleft {
+    float: left;
+
+    img {
+        margin: 5px 20px 20px 0;
+    }
+}
+
+.alignright {
+    float: right;
+
+    img {
+        margin: 5px 0 20px 20px;
+    }
+
+    figcaption {
+        margin-left: 20px;
+    }
+}
+
+.is-style-rounded {
+    img {
+        background-color: var(--background-color);
+        border-radius: 50%;
+    }
+}
+/* End of Wordpress core styling */
+/* stylelint-enable */
+
+blockquote,
+.wp-block-quote {
+    padding-top: 52px;
+    position: relative;
+    margin-top: 32px;
+    margin-bottom: 32px;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 0;
+        padding-left: 80px;
+        margin-top: 64px;
+        margin-bottom: 64px;
+    }
+
+    &:before {
+        content: '';
+        background-image: url('data:image/svg+xml,<svg width="56" height="34" viewBox="0 0 56 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M29.1333 33.3123H48.8341L55.9981 0H44.1776L29.1333 25.432V33.3123ZM0 33.3123H19.5814L26.9841 0H15.0443L0 25.432V33.3123Z" fill="%23009CEB"/></svg>');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 48px;
+        height: 28px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        @include media-breakpoint-up(lg) {
+            width: 56px;
+            height: 33px;
+        }
+    }
+
+    p {
+        color: var(--color-shades-blue-500);
+        font-weight: 600;
+        line-height: 1.6;
+        font-size: map-get($text-sizes, 2xl);
+
+        @include media-breakpoint-up(md) {
+            font-size: map-get($text-sizes, 3xl);
+        }
+    }
+
+    cite {
+        color: var(--color-brand-1);
+        margin-top: 32px;
+        font-style: normal;
+        font-size: map-get($text-sizes, base);
+
+        @include media-breakpoint-up(md) {
+            font-size: map-get($text-sizes, lg);
+        }
+    }
+}
+
+// TODO: change to a utility class
+.bg-accent {
+    background-color: var(--color-shades-grey-300);
+}
+
+.bg-primary {
+    background-color: var(--color-brand-1) !important;
+}
+.bg-primary-gray {
+    background-color: rgba(#dfdede, 70%);
+}
+
+// Order
+@for $i from 1 through 3 {
+    .order-#{$i} {
+        @include media-breakpoint-up(md) {
+            order: #{$i};
+        }
+    }
+
+    .mobile-order-#{$i} {
+        @include media-breakpoint-down(md) {
+            order: #{$i};
+        }
+    }
+}
+/* Custom CSS for Product Thumbnails */
+.woocommerce ul.products li.product a img {
+    width: auto !important;
+    height: auto !important;
+}
+
+.single-product div.product .woocommerce-product-gallery__image img {
+    width: auto !important;
+    height: auto !important;
+}

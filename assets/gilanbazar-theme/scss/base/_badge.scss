@@ -1,0 +1,43 @@
+.badge {
+    --badge-bg-color: var(--color-white);
+    --badge-txt-color: var(--color-shades-blue-500);
+
+    align-items: center;
+    background-color: var(--badge-bg-color);
+    border-radius: 4px;
+    box-shadow: unset;
+    color: var(--badge-txt-color);
+    display: inline-flex;
+    font-weight: 600;
+    line-height: 1.15;
+    padding: 8px 12px;
+    text-decoration: none;
+    transition: background-color 220ms ease-in-out, color 220ms ease-in-out, border-color 220ms ease-in-out;
+    font-size: map-get($text-sizes, xs);
+
+    @include media-breakpoint-up(md) {
+        font-size: map-get($text-sizes, sm);
+    }
+
+    &--primary {
+        --badge-bg-color: var(--color-brand-1);
+        --badge-txt-color: var(--color-white);
+    }
+}
+
+.card {
+    .badge {
+        @at-root .cu-theme & {
+            --card-badge-bg-color: var(--color-brand-1);
+            --card-badge-txt-color: var(--color-white);
+        }
+    
+        @at-root .peterson-theme & {    
+            --card-badge-bg-color: var(--color-brand-1);
+            --card-badge-txt-color: var(--color-white);
+        }
+
+        background-color: var(--card-badge-bg-color);
+        color: var(--card-badge-txt-color);
+    }
+}

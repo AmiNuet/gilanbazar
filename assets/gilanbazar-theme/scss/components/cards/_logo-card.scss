@@ -1,0 +1,43 @@
+.logo-card {
+    background-color: var(--color-white);
+    padding: 24px;
+    border: 1.5px solid var(--color-shades-grey-300);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+
+    @include media-breakpoint-up(lg) {
+        padding: 40px 32px;
+        height: 100%;
+    }
+
+    .btn {
+        margin-top: auto;
+    }
+
+    &__image {
+        max-height: 100px;
+        margin-bottom: 40px;
+        max-width: max-content;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 64px;
+        }
+    }
+
+    &__title {
+        font-size: map-get($text-sizes, xl);
+        margin-bottom: 12px;
+
+        @include media-breakpoint-up(md) {
+            font-size: map-get($text-sizes, 2xl);
+        }
+    }
+
+    &__content {
+        font-size: map-get($text-sizes, base);
+        line-height: 1.8;
+        margin-bottom: 16px;
+    }
+}

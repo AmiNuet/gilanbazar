@@ -1,0 +1,62 @@
+.exp-content {
+    margin: 32px auto;
+
+    div {
+        font-size: map-get($text-sizes, lg);
+        line-height: 1.6;
+        color: var(--color-shades-blue-500);
+        margin-bottom: 16px;
+
+        @include media-breakpoint-up(lg) {
+            font-size: map-get($text-sizes, xl);
+        }
+    }
+
+    p {
+        font-size: map-get($text-sizes, base);
+        color: var(--color-shades-grey-500);
+        line-height: 1.8;
+
+        @include media-breakpoint-up(lg) {
+            font-size: map-get($text-sizes, lg);
+        }
+    }
+
+    ol, ul {
+        padding-left: 1.5rem;
+
+        li {
+            font-size: map-get($text-sizes, base);
+            margin-bottom: 8px;
+            color: var(--color-shades-grey-500);
+            line-height: 1.8;
+            padding-left: 8px;
+
+            @include media-breakpoint-up(lg) {
+                font-size: map-get($text-sizes, lg);
+            }
+        }
+    }
+
+    ol {
+        li {
+            &::marker {
+                font-size: map-get($text-sizes, sm);
+                color: var(--color-shades-blue-500);
+                font-weight: 700;
+
+                @include media-breakpoint-up(lg) {
+                    font-size: map-get($text-sizes, base);
+                } 
+            }
+        }
+    }
+
+    ul {
+        li {
+            &::marker {
+                color: var(--color-shades-blue-500);
+            }
+        }
+    }
+}

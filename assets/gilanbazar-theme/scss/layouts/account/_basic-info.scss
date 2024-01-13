@@ -1,0 +1,249 @@
+.account {
+  $block: &;
+
+  padding: 64px 0;
+  display: flex;
+  position: relative;
+
+  &__basic-info-header {
+
+    margin-bottom: 32px;
+
+    h3 {
+
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      color: var(--color-brand-1);
+
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 16px;
+      }
+
+    }
+
+  }
+
+  &__basic-info-form {
+    display: flex;
+    flex-direction: column;
+
+    .dig_wc_countrycodecontainer {
+      height: 100%;
+    }
+
+    input[name="digt_countrycode"] {
+      height: 100%;
+      border: 1px solid rgba(0,0,0, 0.1);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    label[for="account_email"] {
+      font-size: map-get($text-sizes, base);
+      color: var(--color-shades-grey-400);
+      margin-bottom: 8px;
+    }
+
+  }
+
+  &__basic-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px 0;
+
+    label {
+      font-size: map-get($text-sizes, base);
+      color: var(--color-shades-grey-400);
+    }
+
+    em {
+      font-size: map-get($text-sizes, sm);
+      color: var(--color-shades-blue-400);
+      margin-top: 8px;
+    }
+  }
+
+
+  &__basic-info-form-input,
+  input[name="mobile/email"] {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    box-shadow: rgba(33, 35, 38, 0.3) 0 10px 10px -10px;
+    border-radius: 8px;
+    font-size: map-get($text-sizes, lg);
+    color: var(--color-brand-1);
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__basic-info-form-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 32px;
+    align-items: center;
+  }
+
+  &__basic-info-form-button {
+    outline: none;
+    background-color: var(--color-brand-1);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 42px;
+    font-size: map-get($text-sizes, lg);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &__userprofile {
+
+    .wpua-edit {
+      .wpua-edit-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        position: relative;
+        align-items: center;
+      }
+
+      h3 {
+        font-size: 1rem;
+        color: var(--color-shades-grey-400);
+        margin-bottom: 8px;
+        width: 100%;
+      }
+
+      #wpua-upload-button-existing {
+        display: flex;
+        height: fit-content;
+        margin-bottom: 32px;
+
+        #wpua-file-existing {
+          display: none;
+
+        }
+        .wpua-file-existing-label {
+          padding: 16px;
+          resize: none;
+          border: none;
+          border-radius: 8px;
+          font-size: 1.125rem;
+          color: var(--color-brand-1);
+          background-color: var(--color-white);
+          cursor: pointer;
+        }
+
+        #wpua-upload-existing {
+          outline: none;
+          background-color: var(--color-brand-1);
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          padding: 12px;
+          font-size: map-get($text-sizes, sm);
+          cursor: pointer;
+          transition: transform 0.2s ease-in-out;
+
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+
+      #wpua-upload-messages-existing {
+        font-size: 0.875rem;
+        color: var(--color-shades-blue-400);
+        position: relative;
+
+        @include media-breakpoint-up(lg) {
+          position: absolute;
+          bottom: 0;
+        }
+
+          #wpua-max-upload-existing {
+
+          }
+
+          #wpua-allowed-files-existing {
+
+          }
+      }
+
+      #wpua-images-existing {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        margin-right: 0;
+        font-size: map-get($text-sizes, xs);
+        color: var(--color-shades-blue-400);
+
+        @include media-breakpoint-up(lg) {
+          margin-right: 136px;
+        }
+
+        #wpua-thumbnail-existing,
+        #wpua-preview-existing {
+            span {
+              display: inline-block;
+              margin-top: 4px;
+            }
+        }
+      }
+
+      .submit {
+
+        input {
+          outline: none;
+          background-color: var(--color-brand-1);
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          padding: 12px;
+          font-size: map-get($text-sizes, sm);
+          cursor: pointer;
+          transition: transform 0.2s ease-in-out;
+
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+
+      #wpua-remove-button-existing,
+      #wpua-undo-button-existing {
+
+        button {
+          outline: none;
+          background-color: var(--color-brand-1);
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          padding: 12px;
+          font-size: map-get($text-sizes, sm);
+          cursor: pointer;
+          transition: transform 0.2s ease-in-out;
+
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+
+    }
+  }
+
+}

@@ -1,0 +1,98 @@
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @at-root .cu-theme & {
+        --breadcrumbs-text-decoration: none;
+        --breadcrumbs-current-color: var(--color-shades-blue-500);
+        --breadcrumbs-default-link-color: var(--color-cu-lightblue-500);
+        --color-svg-color: var(--color-cu-lightblue-500);
+    }
+
+    @at-root .peterson-theme & {
+        --breadcrumbs-text-decoration: underline;
+        --breadcrumbs-current-color: var(--color-white);
+        --breadcrumbs-default-link-color: var(--color-white);
+        --color-svg-color: var(--color-white);
+    }
+
+    .item-home {
+        display: none;
+
+        @include media-breakpoint-up(md) {
+            display: inline-block;
+        }
+    }
+
+    .item-parent {
+        .separator {
+            display: none;
+
+            @include media-breakpoint-up(md) {
+                display: block;
+            }
+        }
+    }
+
+    .item-current {
+        color: var(--breadcrumbs-current-color);
+        display: none;
+
+        @include media-breakpoint-up(md) {
+            display: inline-block;
+        }
+    }
+
+    .separator,
+    .back-separator {
+        display: inline-block;
+        flex-shrink: 0;
+
+        /* stylelint-disable */
+        svg {
+            display: block;
+
+            path {
+                stroke: var(--color-svg-color);
+            }
+        }
+        /* stylelint-enable */
+    }
+
+    .back-separator {
+        margin-right: 8px;
+
+        @include media-breakpoint-up(md) {
+            display: none;
+        }
+    }
+
+    .separator {
+        margin-left: 8px;
+
+        @include media-breakpoint-up(lg) {
+            margin-left: 12px;
+        }
+    }
+
+    li {
+        font-size: map-get($text-sizes, xs);
+        align-items: center;
+        display: flex;
+        font-weight: 600;
+        line-height: 1.15;
+
+        a {
+            color: var(--breadcrumbs-default-link-color);
+
+            @at-root .peterson-theme & {
+                text-decoration: var(--breadcrumbs-text-decoration);
+            }
+        }
+    }
+}

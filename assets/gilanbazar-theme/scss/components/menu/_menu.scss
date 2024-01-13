@@ -1,0 +1,238 @@
+/* stylelint-disable */
+.header {
+    $block: &;
+
+    background-color: var(--color-white);
+    display: block;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+        top: 0;
+    }
+
+    //.admin-bar & {
+    //    top: 32px;
+    //}
+
+    &__container {
+        display: flex;
+        justify-content: flex-start;
+        gap: 16px;
+        align-items: center;
+
+    }
+    &__nav {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        > nav {
+
+            > ul {
+                list-style: none;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+
+                > li {
+                    align-items: center;
+                    display: inline-flex;
+                    font-size: map-get($text-sizes, sm);
+                    font-weight: 600;
+                    line-height: 1;
+                    margin-right: 20px;
+                    margin-left: 20px;
+
+                    > a {
+                        color: var(--color-shades-blue-500);
+
+                        &.show,
+                        &:hover,
+                        &:focus {
+                            color: var(--color-brand-1);
+                            text-decoration: none;
+                        }
+                    }
+
+                    &.dropdown {
+                        position: static;
+
+                        > a {
+                            align-items: center;
+                            display: flex;
+                            gap: 6px;
+
+                            svg {
+                                margin-left: 8px;
+                                stroke: var(--color-shades-blue-500);
+                            }
+
+                            &.show,
+                            &:hover,
+                            &:focus {
+                                svg {
+                                    stroke: var(--color-brand-1);
+                                }
+                            }
+                        }
+                    }
+
+                    .dropdown-menu {
+                        display: block;
+                        margin-top: 30px !important;
+                        opacity: 0;
+                        transform: scaleY(0);
+                        transform-origin: top;
+                        transition: 0.5s;
+                        transition: transform 0.5s ease;
+                        visibility: hidden;
+
+                        > .container {
+                            opacity: 0;
+                        }
+
+                        &.show {
+                            max-height: calc(100vh - 350px);
+                            min-height: 350px;
+                            opacity: 1;
+                            overflow-y: auto;
+                            top: 100%;
+                            transform: scaleY(1);
+                            visibility: visible;
+                            border-radius: 8px;
+
+                            > .container {
+                                animation: 0.75s ease 0s normal forwards fadein;
+                            }
+
+                            @keyframes fadein {
+                                0% {
+                                    opacity: 0;
+                                }
+                                66% {
+                                    opacity: 0;
+                                }
+                                100% {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    &__navbar-brand {
+    }
+
+    &__logo {
+        height: 52px !important;
+    }
+
+    &__search {
+        flex: 2;
+    }
+
+    &__account {
+        flex: 2;
+        text-align: left;
+        .dropdown-menu {
+            padding: 0;
+            text-align: center;
+            .dropdown-item {
+                padding: 12px 0;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid rgba(0, 0, 0, .2);
+                }
+            }
+        }
+    }
+
+
+    &__profile {
+        svg {
+            height: 20px;
+            stroke: var(--color-shades-blue-500);
+            width: 20px;
+            cursor: pointer;
+        }
+    }
+
+    &__container-mobile {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .nav-main {
+            position: absolute;
+            top: 60px;
+            transform: translateX(350px);
+            width: 320px;
+            height: 80vh;
+            background: #fff;
+            transition: transform 0.3s ease;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            padding: 32px 0;
+            border-radius: 8px;
+
+            &.show-nav {
+                transform: translateX(0);
+            }
+
+            #{$block}__navbar-brand {
+                img {
+                    filter: drop-shadow(1px 6px 1px rgba(0, 0, 0, 0.2));
+                }
+            }
+
+            &--items-mobile {
+                display: flex;
+                flex-direction: column;
+                margin-top: 64px;
+                width: 100%;
+
+                    li {
+                        margin-bottom: 32px;
+
+                        a {
+                            font-size: map-get($text-sizes, base);
+                        }
+                    }
+
+                .megamenu__menu-children-sec,
+                .megamenu__menu-children-sec-visible,
+                .megamenu__menu-children-third {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+
+    &__hamburger-menu {
+        cursor: pointer;
+
+        svg {
+
+            width: 32px;
+
+            #SVGRepo_iconCarrier {
+
+                path {
+                    stroke: var(--color-brand-1);
+                }
+            }
+        }
+
+    }
+
+}
+
+/* stylelint-enable */

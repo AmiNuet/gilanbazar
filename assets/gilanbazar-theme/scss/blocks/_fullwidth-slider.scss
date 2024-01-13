@@ -1,0 +1,108 @@
+.fullwidth-slider {
+    $block: &;
+
+    overflow: hidden;
+    padding-top: 48px;
+    padding-bottom: 48px;
+
+    &__title {
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 24px;
+        color: var(--color-brand-1);
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 16px;
+        }
+    }
+
+    &__button {
+        margin-top: 16px;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 24px;
+        }
+    }
+
+    &__controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 8px 0;
+        gap: 8px;
+    }
+
+    &__pagination {
+        @extend %pagination;
+    }
+
+    &__nav-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        height: 100%;
+    }
+
+    &__nav {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: all 0.2s ease-in-out;
+        border: 2px solid var(--color-brand-1);
+
+        &:hover {
+            filter: brightness(0.80);
+        }
+
+        &.swiper-button-disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        svg {
+            @include media-breakpoint-up(lg) {
+                width: 10px;
+                height: 10px;
+            }
+
+            path {
+                stroke: var(--color-brand-1);
+            }
+        }
+    }
+
+    &__swiper-container.swiper-container {
+        cursor: grab;
+        padding: 0;
+    }
+
+    &__slide {
+        background-color: var(--color-white);
+        box-shadow: 0px 10px 14px -4px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+    }
+
+    &__slide-fullwidth-header {
+        position: relative;
+        margin-bottom: 8px;
+        width: 100%;
+    }
+
+    &__slide-fullwidth-image {
+        width: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    &__slide-fullwidth-link {
+        position: absolute;
+        inset: 0;
+    }
+}
